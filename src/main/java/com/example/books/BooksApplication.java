@@ -1,6 +1,5 @@
 package com.example.books;
 
-import com.example.controller.BookController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,9 +10,7 @@ public class BooksApplication {
 
         SpringApplication.run(BooksApplication.class, args);
 
-        BookController controller = new BookController();
-        String response = controller.firstApi();
-        System.out.println(response);
+
 
 	}
 
