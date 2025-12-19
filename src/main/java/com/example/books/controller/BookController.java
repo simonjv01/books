@@ -28,4 +28,12 @@ public class BookController {
     public List<Book> getBooks() {
         return books;
     }
+
+    @GetMapping("/api/books/{title}")
+    public Book getBookByTitle(String title) {
+        return books.stream()
+                .filter(book -> book.getTitle().equalsIgnoreCase(title))
+                .findFirst()
+                .orElse(null);
+    }
 }
