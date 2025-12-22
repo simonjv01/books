@@ -2,6 +2,7 @@ package com.example.books.controller;
 
 import com.example.books.entity.Book;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,8 +30,8 @@ public class BookController {
         return books;
     }
 
-    @GetMapping("/api/books/{title}")
-    public Book getBookByTitle(String title) {
+    @GetMapping("/books/{title}")
+    public Book getBookByTitle(@PathVariable String title) {
         return books.stream()
                 .filter(book -> book.getTitle().equalsIgnoreCase(title))
                 .findFirst()
