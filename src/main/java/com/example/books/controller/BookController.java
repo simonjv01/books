@@ -40,7 +40,7 @@ public class BookController {
                 filteredBooks.add(book);
             }
         }
-        return books;
+        return filteredBooks;
     }
 
     @GetMapping("/books/{title}")
