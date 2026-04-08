@@ -35,6 +35,7 @@ public class BookController {
 
         return books.stream()
                 .filter(book -> book.getCategory().equalsIgnoreCase(category))
+                .toList();
     }
 
     @GetMapping("/books/{title}")
