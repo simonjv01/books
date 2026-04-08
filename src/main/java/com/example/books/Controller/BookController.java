@@ -1,9 +1,9 @@
-package com.example.books;
+package com.example.books.Controller;
 
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class Controller {
+public class BookController {
 
     @GetMapping("/api-endpoint")
     public String firstApi() {
