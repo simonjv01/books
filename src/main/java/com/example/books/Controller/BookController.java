@@ -10,7 +10,10 @@ import java.util.List;
 public class BookController {
 
     private  final List<Book> books = new ArrayList<>();
-    
+
+    public BookController() {
+        initializeBooks();
+    }
 
     private void initializeBooks() {
         books.addAll(List.of(
