@@ -21,7 +21,9 @@ public class BookController {
                 new Book("Title two", "Author Two", "fiction"),
                 new Book("Title three", "Author Three", "history"),
                 new Book("Title four", "Author Four", "science"),
-                new Book("Title five", "Author Five", "fiction")
+                new Book("Title five", "Author Five", "fiction"),
+                new Book("Title six", "Author Six", "math"),
+                new Book("Title seven", "Author Seven", "math")
 
         ));
     }
@@ -31,7 +33,7 @@ public class BookController {
         if (category == null) {
             return books;
         }
-        
+
         return books.stream()
                 .filter(book -> book.getCategory().equalsIgnoreCase(category))
                 .toList();
