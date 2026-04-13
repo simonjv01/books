@@ -27,8 +27,10 @@ public class BookController {
     }
 
     @GetMapping("/api/books")
-    public List<Book> getBooks() {
-        return books;
+    public List<Book> getBooks(@RequestParam String category) {
+        return books.stream()
+                .filter(book -> book.getCategory().equalsIgnoreCase(category))
+                .toList();
     }
 
     @GetMapping("/api/books/{title}")
