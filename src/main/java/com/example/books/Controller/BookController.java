@@ -33,12 +33,12 @@ public class BookController {
 
     @GetMapping("/api/books/{title}")
     public Book getBookByTitle(@PathVariable String title) {
-        for (Book book : books) {
-            if (book.getTitle().equalsIgnoreCase(title)) {
-                return book;
-            }
+        return books.stream()
+                .filter(book -> book.getTitle().equalsIgnoreCase(title))
+                .findFirst()
+                .orElse(null);
         }
-        return null; // Return null if book not found (you may want to handle this case differently)
+        
     }
 
-}
+
