@@ -28,6 +28,10 @@ public class BookController {
 
     @GetMapping("/api/books")
     public List<Book> getBooks(@RequestParam(required = false) String category) {
+        if (category == null) {
+            return books;
+        }
+        
         return books.stream()
                 .filter(book -> book.getCategory().equalsIgnoreCase(category))
                 .toList();
