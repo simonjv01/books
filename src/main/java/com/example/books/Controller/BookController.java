@@ -46,6 +46,14 @@ public class BookController {
                 .findFirst()
                 .orElse(null);
         }
+
+        public void createBook(@RequestBody Book newBook) {
+            for (Book book : books) {
+                if (book.getTitle().equalsIgnoreCase(newBook.getTitle())) {
+                    return; // Book with the same title already exists, do not add
+                }
+            }
+        }
         
     }
 
