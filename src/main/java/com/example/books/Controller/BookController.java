@@ -41,10 +41,10 @@ public class BookController {
                 .toList();
     }
 
-    @GetMapping("/{title}")
-    public Book getBookByTitle(@PathVariable String title) {
+    @GetMapping("/{id}")
+    public Book getBookById(@PathVariable long id) {
         return books.stream()
-                .filter(book -> book.getTitle().equalsIgnoreCase(title))
+                .filter(book -> book.getId() == id)
                 .findFirst()
                 .orElse(null);
         }
@@ -61,10 +61,10 @@ public class BookController {
             
         }
 
-    @PutMapping("/{title}")
-    public void updateBook(@PathVariable String title, @RequestBody Book updatedBook) {
+    @PutMapping("/{id}")
+    public void updateBook(@PathVariable long id, @RequestBody Book updatedBook) {
         for (int i=0; i < books.size(); i++) {
-            if (books.get(i).getTitle().equalsIgnoreCase(title)) {
+            if (books.get(i).getId() == id) {
                 books.set(i, updatedBook);
                 return;
             }
@@ -72,9 +72,9 @@ public class BookController {
         
     }
 
-    @DeleteMapping("/{title}")
-    public void deleteBook(@PathVariable String title) {
-        books.removeIf(book -> book.getTitle().equalsIgnoreCase(title));
+    @DeleteMapping("/{id}")
+    public void deleteBook(@PathVariable long id) {
+        books.removeIf(book -> book.getId() == id);
 
     }
         
