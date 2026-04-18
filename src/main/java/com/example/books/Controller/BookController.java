@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
+@RequestMapping("/api/books")
 public class BookController {
 
     private  final List<Book> books = new ArrayList<>();
@@ -32,7 +33,7 @@ public class BookController {
         ));
     }
 
-    @GetMapping("/api/books")
+    @GetMapping
     public List<Book> getBooks(@RequestParam(required = false) String category) {
         if (category == null) {
             return books;
@@ -43,7 +44,7 @@ public class BookController {
                 .toList();
     }
 
-    @GetMapping("/api/books/{title}")
+    @GetMapping("/{title}")
     public Book getBookByTitle(@PathVariable String title) {
         return books.stream()
                 .filter(book -> book.getTitle().equalsIgnoreCase(title))
@@ -51,7 +52,7 @@ public class BookController {
                 .orElse(null);
         }
 
-    @PostMapping("/api/books")
+    @PostMapping
     public void createBook(@RequestBody Book newBook) {
             
         boolean isNewBook = books.stream()
@@ -63,7 +64,7 @@ public class BookController {
             
         }
 
-    @PutMapping("api/{title}")
+    @PutMapping("/{title}")
     public void updateBook(@PathVariable String title, @RequestBody Book updatedBook) {
         //TODO: process PUT request
         for (int i=0; i < books.size(); i++) {
@@ -75,10 +76,10 @@ public class BookController {
         
     }
 
-    @DeleteMapping("api/books/{title}")
+    @DeleteMapping("/{title}")
     public void deleteBook(@PathVariable String title) {
         books.removeIf(book -> book.getTitle().equalsIgnoreCase(title));
-        
+
     }
         
     }
