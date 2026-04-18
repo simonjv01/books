@@ -66,7 +66,6 @@ public class BookController {
 
     @PutMapping("/{title}")
     public void updateBook(@PathVariable String title, @RequestBody Book updatedBook) {
-        //TODO: process PUT request
         for (int i=0; i < books.size(); i++) {
             if (books.get(i).getTitle().equalsIgnoreCase(title)) {
                 books.set(i, updatedBook);
