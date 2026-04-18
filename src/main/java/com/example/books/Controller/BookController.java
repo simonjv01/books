@@ -74,6 +74,11 @@ public class BookController {
         }
         
     }
+
+    @DeleteMapping("api/books/{title}")
+    public void deleteBook(@PathVariable String title) {
+        
+    }
         
     }
 
