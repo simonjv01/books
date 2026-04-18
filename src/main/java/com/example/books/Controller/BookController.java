@@ -5,9 +5,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
@@ -22,13 +19,13 @@ public class BookController {
 
     private void initializeBooks() {
         books.addAll(List.of(
-                new Book("Title one", "Author One", "science"),
-                new Book("Title two", "Author Two", "fiction"),
-                new Book("Title three", "Author Three", "history"),
-                new Book("Title four", "Author Four", "science"),
-                new Book("Title five", "Author Five", "fiction"),
-                new Book("Title six", "Author Six", "math"),
-                new Book("Title seven", "Author Seven", "math")
+                new Book(1,"Comp Sci Pro", "Chad Darby", "comp science", 5),
+                new Book(2,"Java Spring Master", "Eric Roby", "comp science", 5),
+                new Book(3,"Why 2+2 Rocks", "Author A.", "Math", 4),
+                new Book(4,"How Bears Hibernate", "Author A.", "Zoology", 3),
+                new Book(5,"A Pirate's Treasure", "Author B.", "Fiction", 7),
+                new Book(6,"Why 1+1 Rocks", "Author C.", "Math", 8)
+
 
         ));
     }
