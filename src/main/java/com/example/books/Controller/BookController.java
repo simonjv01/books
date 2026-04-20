@@ -88,9 +88,16 @@ public class BookController {
         } else {
             id = books.get(books.size() - 1).getId() + 1;
         }
+
+        Book book = new Book(
+            id, bookRequest.getTitle(), bookRequest.getAuthor(),
+            bookRequest.getCategory(), bookRequest.getRating()
+        );
+
+        books.add(book);
         }
     }
         
-    }
+    
 
 
