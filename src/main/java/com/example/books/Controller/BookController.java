@@ -1,6 +1,8 @@
 package com.example.books.Controller;
 
 import com.example.books.entity.Book;
+import com.example.books.entity.BookRequest;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -76,6 +78,17 @@ public class BookController {
     public void deleteBook(@PathVariable long id) {
         books.removeIf(book -> book.getId() == id);
 
+    }
+
+    @PostMapping()
+    public void createBook(@RequestBody BookRequest bookRequest) {
+        long id;
+        if (books.isEmpty()) {
+            id = 1;
+        } else {
+            id = books.get(books.size() - 1).getId() + 1;
+        }
+        }
     }
         
     }
