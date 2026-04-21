@@ -89,12 +89,17 @@ public class BookController {
             id = books.get(books.size() - 1).getId() + 1;
         }
 
-        Book book = new Book(
-            id, bookRequest.getTitle(), bookRequest.getAuthor(),
-            bookRequest.getCategory(), bookRequest.getRating()
-        );
+        Book book = convertToBook(id, bookRequest);
 
         books.add(book);
+        }
+
+
+        private Book convertToBook(long id, BookRequest bookRequest) {
+            return new Book(
+                id, bookRequest.getTitle(), bookRequest.getAuthor(),
+                bookRequest.getCategory(), bookRequest.getRating()
+            );
         }
     }
         
