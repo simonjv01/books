@@ -82,12 +82,8 @@ public class BookController {
 
     @PostMapping()
     public void createBook(@RequestBody BookRequest bookRequest) {
-        long id;
-        if (books.isEmpty()) {
-            id = 1;
-        } else {
-            id = books.get(books.size() - 1).getId() + 1;
-        }
+        long id = books.isEmpty() ? 1 : books.get(books.size() - 1).getId() + 1;
+        
 
         Book book = convertToBook(id, bookRequest);
 
