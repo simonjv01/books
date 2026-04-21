@@ -1,7 +1,7 @@
 package com.example.books.Controller;
 
 import com.example.books.entity.Book;
-import com.example.books.entity.BookRequest;
+import com.example.books.request.BookRequest;
 
 import org.springframework.web.bind.annotation.*;
 
