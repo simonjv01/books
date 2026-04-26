@@ -1,4 +1,4 @@
-package com.example.request;
+package com.example.books.request;
 
 public class BookRequest {
 
