@@ -67,7 +67,7 @@ public class BookController {
     public void updateBook(@PathVariable long id, @RequestBody BookRequest bookRequest) {
         for (int i=0; i < books.size(); i++) {
             if (books.get(i).getId() == id) {
-                Book updatedBook = convertToBook(id, bookRequest)
+                Book updatedBook = convertToBook(id, bookRequest);
                 books.set(i, updatedBook);
                 return;
             }
