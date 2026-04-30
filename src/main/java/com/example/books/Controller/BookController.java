@@ -28,7 +28,8 @@ public class BookController {
                 new Book(3,"Why 2+2 Rocks", "Author A.", "Math", 4),
                 new Book(4,"How Bears Hibernate", "Author A.", "Zoology", 3),
                 new Book(5,"A Pirate's Treasure", "Author B.", "Fiction", 7),
-                new Book(6,"Why 1+1 Rocks", "Author C.", "Math", 8)
+                new Book(6,"Why 1+1 Rocks", "Author C.", "Math", 8),
+                new Book(7,"Game of Thrones", "GRR Martin", "Fantasy", 9)
 
 
         ));
