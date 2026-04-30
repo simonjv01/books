@@ -45,9 +45,7 @@ public class BookController {
 
     @GetMapping("/{id}")
     public Book getBookById(@PathVariable long id) {
-        if (id < 1) {
-            return null;
-        }
+     
         return books.stream()
                 .filter(book -> book.getId() == id)
                 .findFirst()
