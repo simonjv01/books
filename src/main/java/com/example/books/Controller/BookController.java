@@ -54,17 +54,6 @@ public class BookController {
                 .orElse(null);
         }
 
-    @PostMapping
-    public void createBook(@RequestBody Book newBook) {
-            
-        boolean isNewBook = books.stream()
-            .noneMatch(book -> book.getTitle().equalsIgnoreCase(newBook.getTitle()));
-                
-            if (isNewBook) {
-                books.add(newBook);
-            }
-            
-        }
 
     @PutMapping("/{id}")
     public void updateBook(@PathVariable @Min(value = 1)long id, @RequestBody BookRequest bookRequest) {
@@ -95,7 +84,7 @@ public class BookController {
         }
 
 
-        private Book convertToBook(long id, BookRequest bookRequest) {
+        private Book convertToBook(@Min(value =1 )long id, BookRequest bookRequest) {
             return new Book(
                 id, bookRequest.getTitle(), bookRequest.getAuthor(),
                 bookRequest.getCategory(), bookRequest.getRating()
