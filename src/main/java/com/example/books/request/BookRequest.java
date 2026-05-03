@@ -2,11 +2,17 @@ package com.example.books.request;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 
 public class BookRequest {
 
+    @Size(min = 1, max = 50, message = "Title must be between 1 and 50 characters")
     private String title;
+
+    @Size(min = 1, max = 40, message = "Author must be between 1 and 40 characters")
     private String author;
+
+    @Size(min = 1, max = 30, message = "Category must be between 1 and 30 characters")
     private String category;
 
     @Min(value = 1, message = "Rating must be at least 1" )

@@ -3,6 +3,7 @@ package com.example.books.Controller;
 import com.example.books.entity.Book;
 import com.example.books.request.BookRequest;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 
 import org.springframework.web.bind.annotation.*;
@@ -75,7 +76,7 @@ public class BookController {
     }
 
     @PostMapping()
-    public void createBook(@RequestBody BookRequest bookRequest) {
+    public void createBook(@Valid @RequestBody BookRequest bookRequest) {
         long id = books.isEmpty() ? 1 : books.get(books.size() - 1).getId() + 1;
         
 
