@@ -1,10 +1,16 @@
 package com.example.books.request;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+
 public class BookRequest {
 
     private String title;
     private String author;
     private String category;
+
+    @Min(value = 1)
+    @Max(value = 5)
     private int rating;
 
 
