@@ -56,7 +56,7 @@ public class BookController {
                 .orElse(null);
         }
 
-
+    @ResponseStatus(HttpStatus.NO_CONTENT)   
     @PutMapping("/{id}")
     public void updateBook(@PathVariable @Min(value = 1)long id, @RequestBody BookRequest bookRequest) {
         for (int i=0; i < books.size(); i++) {
