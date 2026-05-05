@@ -36,6 +36,7 @@ public class BookController {
         ));
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping
     public List<Book> getBooks(@RequestParam(required = false) String category) {
         if (category == null) {
@@ -47,6 +48,7 @@ public class BookController {
                 .toList();
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public Book getBookById(@PathVariable @Min(value = 1) long id) {
      
