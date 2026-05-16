@@ -61,7 +61,8 @@ public class BookController {
                 .findFirst()
                 .orElse(null);
         }
-
+    
+    @Operation(summary = "Update an existing book", description = "Update the details of an existing book by its ID.")    
     @ResponseStatus(HttpStatus.NO_CONTENT)   
     @PutMapping("/{id}")
     public void updateBook(@PathVariable @Min(value = 1)long id, @RequestBody BookRequest bookRequest) {
@@ -75,6 +76,7 @@ public class BookController {
         
     }
 
+    @Operation(summary = "Delete a book", description = "Remove a book from the collection by its ID.") 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void deleteBook(@PathVariable @Min(value = 1)long id) {
