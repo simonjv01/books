@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Tag(name = "Books Rest API Endpoints", descrtiption = "Operations related to Books")
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
