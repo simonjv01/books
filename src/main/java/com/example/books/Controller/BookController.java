@@ -3,6 +3,8 @@ package com.example.books.Controller;
 import com.example.books.entity.Book;
 import com.example.books.request.BookRequest;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import org.springframework.http.HttpStatus;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Tag(name = "Books Rest API Endpoints", descrtiption = "Operations related to Books")
+@Tag(name = "Books Rest API Endpoints", description = "Operations related to Books")
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
@@ -36,6 +38,7 @@ public class BookController {
         ));
     }
 
+    @Operation(summary = "Get all books", description = "Retrieve a list of all books, optionally filtered by category.")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
     public List<Book> getBooks(@RequestParam(required = false) String category) {
