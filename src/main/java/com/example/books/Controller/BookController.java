@@ -51,6 +51,7 @@ public class BookController {
                 .toList();
     }
 
+    @Operation(summary = "Get book by ID", description = "Retrieve a single book by its unique ID.")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public Book getBookById(@PathVariable @Min(value = 1) long id) {
@@ -81,6 +82,7 @@ public class BookController {
 
     }
 
+    @Operation(summary = "Create a new book", description = "Add a new book to the collection.")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping()
     public void createBook(@Valid @RequestBody BookRequest bookRequest) {
