@@ -66,7 +66,7 @@ public class BookController {
     @Operation(summary = "Update an existing book", description = "Update the details of an existing book by its ID.")    
     @ResponseStatus(HttpStatus.NO_CONTENT)   
     @PutMapping("/{id}")
-    public void updateBook(@PathVariable @Min(value = 1)long id, @RequestBody BookRequest bookRequest) {
+    public void updateBook(@Parameter(description = "Id of the book to update") @PathVariable @Min(value = 1)long id, @RequestBody BookRequest bookRequest) {
         for (int i=0; i < books.size(); i++) {
             if (books.get(i).getId() == id) {
                 Book updatedBook = convertToBook(id, bookRequest);
