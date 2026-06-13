@@ -55,7 +55,7 @@ public class BookController {
     @Operation(summary = "Get book by ID", description = "Retrieve a single book by its unique ID.")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    public Book getBookById(@PathVariable @Min(value = 1) long id) {
+    public Book getBookById(@Parameter(description = "Id of book to be retrieved") @PathVariable @Min(value = 1) long id) {
      
         return books.stream()
                 .filter(book -> book.getId() == id)
