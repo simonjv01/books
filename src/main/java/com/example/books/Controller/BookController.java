@@ -4,6 +4,7 @@ import com.example.books.entity.Book;
 import com.example.books.request.BookRequest;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
@@ -41,7 +42,7 @@ public class BookController {
     @Operation(summary = "Get all books", description = "Retrieve a list of all books, optionally filtered by category.")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
-    public List<Book> getBooks(@RequestParam(required = false) String category) {
+    public List<Book> getBooks(@Parameter(description = "Optional query parameter") @RequestParam(required = false) String category) {
         if (category == null) {
             return books;
         }
